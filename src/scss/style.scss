@@ -4,12 +4,10 @@
 
 :root {
   // Fonts
-  --font-primary: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-heading: 'Outfit', sans-serif;
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, "Noto Sans JP", "Noto Sans CJK JP", sans-serif;
 
   --color-bg: #fff;
   --color-text-main: #333;
-  --color-primary: #5eeba9;
 
   // Gradients
   --gradient-primary: linear-gradient(135deg, #6366f1 0%, #ec4899 50%, #06b6d4 100%);
@@ -17,9 +15,8 @@
   --gradient-glow: radial-gradient(circle at 50% 30%, rgba(99, 102, 241, 0.25) 0%, rgba(9, 13, 22, 0) 70%);
 
   // Layout & Spacing
-  --max-width: 1120px;
+  --content-max-width: 750px;
   --service-unit: 4px;
-  --service-radius-unit: 8px;
 
   // fontsize
   --fontsize-base: 16px;
@@ -33,6 +30,11 @@
   // Transitions
   --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+// Spacing Helper Function
+@function space($multiplier) {
+  @return calc(var(--service-unit) * #{$multiplier});
 }
 
 // ==========================================================================
@@ -67,4 +69,60 @@ a {
 
 ul {
   list-style: none;
+}
+
+
+.hero-section {
+  position: relative;
+  padding: space(20) 0;
+
+  /* 2つの疑似要素（::before / ::after）で消える動きと現れる動きを同時平行（クロスフェード）させる */
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    filter: blur(120px);
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+  }
+
+  /* レイヤー1: 中央用グラデーション */
+  &::before {
+    background: radial-gradient(
+        1200px circle at var(--glow1-x, 50%) var(--glow1-y, 50%), 
+        rgba(46, 210, 169, 0.5), 
+        rgba(157, 255, 248, 0.1) 40%
+    );
+    opacity: var(--glow1-opacity, 1);
+  }
+
+  /* レイヤー2: マウス追従用グラデーション */
+  &::after {
+    background: radial-gradient(
+        500px circle at var(--glow2-x, 50%) var(--glow2-y, 50%), 
+        rgba(46, 210, 169, 0.895), 
+        rgba(157, 255, 248, 0.1) 40%
+    );
+    opacity: var(--glow2-opacity, 0);
+  }
+
+  &__content{
+    text-align: center;
+    position: relative;
+    z-index: 99;
+  }
+  &__title{
+  font-size: var(--fontsize-2xl);
+  }
+  &__subtitle{
+    margin-top: space(2);
+    font-size: var(--fontsize-md);
+  }
+  &__description{
+    margin-top: space(6);
+  }
 }
