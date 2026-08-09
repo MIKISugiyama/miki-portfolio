@@ -11,26 +11,24 @@ $bp-md: 768px;
 
   // color
   --color-main: #82e6c3;
+  --color-main-light: #d9fdf1;
   --color-bg: #fff;
   --color-text-main: #3a3a3a;
   --color-link: #4189d5;
-
-  // Gradients
-  --gradient-primary: linear-gradient(to right, #bdffe8, #e7fff7, #bdffe8);
 
   // Layout & Spacing
   --content-max-width: 720px;
   --service-unit: 4px;
 
   // fontsize
-  --fontsize-base: 16px;
-  --fontsize-sm: calc(var(--fontsize-base) - 2px); // 14px
-  --fontsize-md: calc(var(--fontsize-base) + 2px); // 18px
-  --fontsize-lg: calc(var(--fontsize-base) + 6px); // 22px
-  --fontsize-xl: calc(var(--fontsize-base) + 12px); // 28px
-  --fontsize-2xl: calc(var(--fontsize-base) + 20px); // 36px
-  --fontsize-3xl: calc(var(--fontsize-base) + 32px); // 48px
-  --fontsize-hero: calc(var(--fontsize-base) + 36px); // 52px
+  --fontsize-base: 14px;
+  --fontsize-sm: calc(var(--fontsize-base) - 2px);
+  --fontsize-md: calc(var(--fontsize-base) + 2px);
+  --fontsize-lg: calc(var(--fontsize-base) + 6px);
+  --fontsize-xl: calc(var(--fontsize-base) + 12px);
+  --fontsize-2xl: calc(var(--fontsize-base) + 20px);
+  --fontsize-3xl: calc(var(--fontsize-base) + 32px);
+  --fontsize-hero: calc(var(--fontsize-base) + 38px);
 
   // Transitions
   --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -68,7 +66,8 @@ body {
 
 h1,
 h2,
-h3 {
+h3,
+th {
   font-weight: normal;
 }
 
@@ -87,6 +86,14 @@ a, a:visited {
 
 ul {
   list-style: none;
+}
+
+#main-content{
+  background: radial-gradient(
+      800px circle at 90% 80%, 
+      rgba(46, 210, 169, 0.3), 
+      rgba(157, 255, 248, 0.1) 40%
+  );
 }
 
 
@@ -120,8 +127,8 @@ ul {
   /* レイヤー2: マウス追従用グラデーション */
   &::after {
     background: radial-gradient(
-        500px circle at var(--glow2-x, 50%) var(--glow2-y, 50%), 
-        rgba(46, 210, 169, 0.895), 
+        800px circle at var(--glow2-x, 50%) var(--glow2-y, 50%), 
+        rgba(46, 210, 169, 0.5), 
         rgba(157, 255, 248, 0.1) 40%
     );
     opacity: var(--glow2-opacity, 0);
@@ -161,6 +168,53 @@ ul {
 
   &__inner{
     margin-top: space(15);
+
+    dl{
+      dt
+      {
+        padding-left: space(3);
+        position: relative;
+
+        &:not(:first-child){
+        margin-top: space(4);
+      }
+
+      &::before{
+        display: inline-block;
+        content: "";
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        background-color: var(--color-main);
+      }
+    }
+      
+      dd{
+        margin-top: space(1);
+        
+      }
+    }
+  }
+
+  &__skills-list{
+    margin-left: space(3);
+    li{
+      margin-top: space(1);
+      padding-left: space(3);
+      position: relative;
+
+      &::before{
+        display: inline-block;
+        position: absolute;
+        content: "-";
+        color: var(--color-main);
+        font-weight: bold;
+        left: 0;
+      }
+    }
   }
 
   &__works-item{
@@ -201,20 +255,29 @@ ul {
       }
     }
 
-    dl{
+    dl {
       width: 50%;
       margin-left: space(8);
-
-      dt
-      {
-        &:not(:first-child){
-        margin-top: space(4);
-      }
     }
-      
-      dd{
-        margin-top: space(1);
+  }
+  
+  &__experience-table{
+    border-collapse: collapse;
+
+    th, td{
+      padding: space(3);
+      border-bottom: 1px solid var(--color-main-light);
+    }
+    th {
+      &:not(:first-child){
+        border-left: 1px solid var(--color-bg);
       }
+      
+      background-color: var(--color-main-light);
+    }
+    
+    & &__indent-cell{
+      padding-left: space(5);
     }
   }
 }
