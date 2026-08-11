@@ -2,30 +2,33 @@
 // Design Tokens & Variables
 // ==========================================================================
 
+// SCSS Breakpoints
+$bp-md: 768px;
+
 :root {
   // Fonts
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, "Noto Sans JP", "Noto Sans CJK JP", sans-serif;
 
+  // color
+  --color-main: #82e6c3;
+  --color-main-light: #d9fdf1;
   --color-bg: #fff;
-  --color-text-main: #333;
-
-  // Gradients
-  --gradient-primary: linear-gradient(135deg, #6366f1 0%, #ec4899 50%, #06b6d4 100%);
-  --gradient-card: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
-  --gradient-glow: radial-gradient(circle at 50% 30%, rgba(99, 102, 241, 0.25) 0%, rgba(9, 13, 22, 0) 70%);
+  --color-text-main: #3a3a3a;
+  --color-link: #4189d5;
 
   // Layout & Spacing
-  --content-max-width: 750px;
+  --content-max-width: 1000px;
   --service-unit: 4px;
 
   // fontsize
   --fontsize-base: 16px;
-  --fontsize-sm: calc(var(--fontsize-base) - 2px); // 14px
-  --fontsize-md: calc(var(--fontsize-base) + 2px); // 18px
-  --fontsize-lg: calc(var(--fontsize-base) + 6px); // 22px
-  --fontsize-xl: calc(var(--fontsize-base) + 12px); // 28px
-  --fontsize-2xl: calc(var(--fontsize-base) + 20px); // 36px
-  --fontsize-3xl: calc(var(--fontsize-base) + 32px); // 48px
+  --fontsize-sm: calc(var(--fontsize-base) - 2px);
+  --fontsize-md: calc(var(--fontsize-base) + 2px);
+  --fontsize-lg: calc(var(--fontsize-base) + 6px);
+  --fontsize-xl: calc(var(--fontsize-base) + 12px);
+  --fontsize-2xl: calc(var(--fontsize-base) + 20px);
+  --fontsize-3xl: calc(var(--fontsize-base) + 32px);
+  --fontsize-hero: calc(var(--fontsize-base) + 38px);
 
   // Transitions
   --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -61,22 +64,52 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-a {
-  color: inherit;
+h1,
+h2,
+h3,
+th {
+  font-weight: normal;
+}
+
+a, a:visited {
+  color: var(--color-link);
   text-decoration: none;
-  transition: color var(--transition-fast);
+  transition: opacity var(--transition-fast);
+  word-break: break-all;
+  cursor: pointer;
+
+  &:hover {
+    opacity: .7;
+    transition: opacity var(--transition-fast);
+  }
 }
 
 ul {
   list-style: none;
 }
 
+button {
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  color: inherit;
+  font-size: inherit;
+}
+
+#main-content{
+  background: radial-gradient(
+      800px circle at 90% 80%, 
+      rgba(46, 210, 169, 0.3), 
+      rgba(157, 255, 248, 0.1) 40%
+  );
+}
+
 
 .hero-section {
   position: relative;
-  padding: space(20) 0;
+  padding: space(32) 0;
 
-  /* 2つの疑似要素（::before / ::after）で消える動きと現れる動きを同時平行（クロスフェード）させる */
   &::before,
   &::after {
     content: '';
@@ -93,7 +126,7 @@ ul {
   /* レイヤー1: 中央用グラデーション */
   &::before {
     background: radial-gradient(
-        1200px circle at var(--glow1-x, 50%) var(--glow1-y, 50%), 
+        800px circle at var(--glow1-x, 50%) var(--glow1-y, 50%), 
         rgba(46, 210, 169, 0.5), 
         rgba(157, 255, 248, 0.1) 40%
     );
@@ -103,8 +136,8 @@ ul {
   /* レイヤー2: マウス追従用グラデーション */
   &::after {
     background: radial-gradient(
-        500px circle at var(--glow2-x, 50%) var(--glow2-y, 50%), 
-        rgba(46, 210, 169, 0.895), 
+        800px circle at var(--glow2-x, 50%) var(--glow2-y, 50%), 
+        rgba(46, 210, 169, 0.5), 
         rgba(157, 255, 248, 0.1) 40%
     );
     opacity: var(--glow2-opacity, 0);
@@ -115,14 +148,170 @@ ul {
     position: relative;
     z-index: 99;
   }
+
   &__title{
-  font-size: var(--fontsize-2xl);
+    font-size: var(--fontsize-hero);
   }
+
   &__subtitle{
-    margin-top: space(2);
-    font-size: var(--fontsize-md);
+    margin-top: space(4);
+    font-size: var(--fontsize-lg);
   }
   &__description{
-    margin-top: space(6);
+    margin-top: space(8);
+  }
+}
+
+.content-section {
+  margin: space(24) auto 0;
+  padding-inline: space(4);
+
+  @media screen and (min-width: $bp-md) {
+    max-width: var(--content-max-width);
+    padding-inline: space(15);
+  }
+
+  &__title {
+    font-size: var(--fontsize-2xl);
+  }
+
+  &__inner{
+    margin-top: space(15);
+
+    dl{
+      dt
+      {
+        padding-left: space(3);
+        position: relative;
+
+        &:not(:first-child){
+        margin-top: space(4);
+      }
+
+      &::before{
+        display: inline-block;
+        content: "";
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        background-color: var(--color-main);
+      }
+    }
+      
+      dd{
+        margin-top: space(1);
+        
+      }
+    }
+  }
+
+  &__skills-list{
+    margin-left: space(3);
+    li{
+      margin-top: space(1);
+      padding-left: space(3);
+      position: relative;
+
+      &::before{
+        display: inline-block;
+        position: absolute;
+        content: "-";
+        color: var(--color-main);
+        font-weight: bold;
+        left: 0;
+      }
+    }
+  }
+
+  &__works-item{
+    margin-top: space(15);
+
+    &__title{
+      padding-left: space(2);
+      border-left: 4px solid var(--color-main);
+    }
+
+    &__inner{
+     display: flex; 
+     align-items: center;
+     margin-top: space(8);
+    }
+
+    &__image{
+      @media screen and (min-width: $bp-md) {
+        display: flex;
+        width: 50%;
+        justify-content: space-between;
+      }
+
+      &--pc{
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        @media screen and (min-width: $bp-md) {
+          width: 70%;
+          height: fit-content;
+        }
+      }
+
+      &--sp{
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        @media screen and (min-width: $bp-md) {
+          width: 25%;
+          height: fit-content;
+        }
+      }
+    }
+
+    dl {
+      width: 50%;
+      margin-left: space(12);
+    }
+  }
+  
+  &__experience-table{
+    border-collapse: collapse;
+
+    th, td{
+      padding: space(3);
+      border-bottom: 1px solid var(--color-main-light);
+    }
+    th {
+      &:not(:first-child){
+        border-left: 1px solid var(--color-bg);
+      }
+      
+      background-color: var(--color-main-light);
+    }
+    
+    & &__indent-cell{
+      padding-left: space(5);
+    }
+  }
+}
+
+.site-footer{
+  margin: space(36) auto 0;
+  background-color: var(--color-main-light);
+
+  &__inner{
+    padding: space(6) 0;
+    display: flex;
+    justify-content: center;
+    gap: space(6);
+  }
+
+  &__social-link{
+    display: inline-flex; 
+    align-items: center;
+    gap: space(2);
+    line-height: 1;
+    color: var(--color-link);
+    transition: opacity var(--transition-fast);
+
+    &:hover{
+      opacity: .7;
+    }
   }
 }

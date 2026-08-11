@@ -20,6 +20,19 @@
 </head>
 <body>
 
+  <!-- SVG Sprite Definitions -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="icon-github" viewBox="0 0 16 16">
+      <path d="M6.766 11.328c-2.063-.25-3.516-1.734-3.516-3.656 0-.781.281-1.625.75-2.188-.203-.515-.172-1.609.063-2.062.625-.078 1.468.25 1.968.703.594-.187 1.219-.281 1.985-.281.765 0 1.39.094 1.953.265.484-.437 1.344-.765 1.969-.687.218.422.25 1.515.046 2.047.5.593.766 1.39.766 2.203 0 1.922-1.453 3.375-3.547 3.64.531.344.89 1.094.89 1.954v1.625c0 .468.391.734.86.547C13.781 14.359 16 11.53 16 8.03 16 3.61 12.406 0 7.984 0 3.563 0 0 3.61 0 8.031a7.88 7.88 0 0 0 5.172 7.422c.422.156.828-.125.828-.547v-1.25c-.219.094-.5.156-.75.156-1.031 0-1.64-.562-2.078-1.609-.172-.422-.36-.672-.719-.719-.187-.015-.25-.093-.25-.187 0-.188.313-.328.625-.328.453 0 .844.281 1.25.86.313.452.64.655 1.031.655s.641-.14 1-.5c.266-.265.47-.5.657-.656"/>
+    </symbol>
+    <symbol id="icon-email" viewBox="0 0 24 24">
+      <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4.75l-8 5.25L4 8.75V6.25l8 5.25 8-5.25v2.5z"/>
+    </symbol>
+    <symbol id="icon-copy" viewBox="0 0 16 16">
+      <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+    </symbol>
+  </svg>
+
   <main id="main-content">
     <!-- Hero Section -->
     <section class="hero-section" id="hero">
@@ -32,91 +45,138 @@
     </section>
 
     <!-- Works Section -->
-    <section>
-      <h2>WORKS</h2>
-      <section>
-        <h3>ECサイト内のキャンペーンLP</h3>
-        <dl>
-          <dt>URL</dt>
-          <dd><a href="dummy">https://dummy.com/</a></dd>
-          <dt>使用言語・ツール</dt>
-          <dd>HTML, CSS, JavaScript, CRM（Salesforce Marketing Cloud）</dd>
-          <dt>作業内容</dt>
-          <dd>
-            新規LPのコーディングを担当しました。<br>
-            JavaScriptでタブやスクロール時のアニメーションを実装しています。
-          </dd>
-        </dl>
-      </section>
-      <section>
-        <h3>鉄道会社ポータルサイト</h3>
-        <dl>
-          <dt>URL</dt>
-          <dd><a href="dummy">https://dummy.com/</a></dd>
-          <dt>作業範囲</dt>
-          <dd>
-            初期公開時のコーディング
-          </dd>
-        </dl>
-      </section>
+    <section class="content-section">
+      <h2 class="content-section__title">WORKS</h2>
+      <div class="content-section__inner">
+        <section class="content-section__works-item">
+          <h3 class="content-section__works-item__title">ECサイト内のキャンペーンLP</h3>
+            <div class="content-section__works-item__inner">
+              <div class="content-section__works-item__image">
+                <img src="/src/assets/images/shopRecievePc.jpg" class="content-section__works-item__image--pc" width="337" height="229" alt="wester mall 店舗受け取りサービス PC画面">
+                <img src="/src/assets/images/shopRecieveSp.jpg" class="content-section__works-item__image--sp" width="111" height="257" alt="wester mall 店舗受け取りサービス スマホ画面">
+              </div>
+            <dl>
+              <dt>URL</dt>
+              <dd><a href="https://wester-mall.westjr.co.jp/specialFeature/special-feature-pickup.html" target="_blank">https://wester-mall.westjr.co.jp/specialFeature/special-feature-pickup.html</a></dd>
+              <dt>使用言語・ツール</dt>
+              <dd>HTML, CSS, JavaScript, CRM（Salesforce Marketing Cloud）</dd>
+              <dt>作業内容</dt>
+              <dd>
+                新規LPのコーディングを担当しました。<br>
+                JavaScriptでタブやスクロール時のアニメーションを実装しています。<br>
+              </dd>
+            </dl>
+          </div>
+        </section>
+        <section class="content-section__works-item">
+          <h3 class="content-section__works-item__title">ECサイト内のキャンペーンLP</h3>
+            <div class="content-section__works-item__inner">
+              <div class="content-section__works-item__image">
+                <img src="/src/assets/images/shopRecievePc.jpg" class="content-section__works-item__image--pc" width="337" height="229" alt="wester mall 店舗受け取りサービス PC画面">
+                <img src="/src/assets/images/shopRecieveSp.jpg" class="content-section__works-item__image--sp" width="111" height="257" alt="wester mall 店舗受け取りサービス スマホ画面">
+              </div>
+            <dl>
+              <dt>URL</dt>
+              <dd><a href="https://wester-mall.westjr.co.jp/specialFeature/special-feature-pickup.html" target="_blank">https://wester-mall.westjr.co.jp/specialFeature/special-feature-pickup.html</a></dd>
+              <dt>使用言語・ツール</dt>
+              <dd>HTML, CSS, JavaScript, CRM（Salesforce Marketing Cloud）</dd>
+              <dt>作業内容</dt>
+              <dd>
+                新規LPのコーディングを担当しました。<br>
+                JavaScriptでタブやスクロール時のアニメーションを実装しています。<br>
+              </dd>
+            </dl>
+          </div>
+        </section>
+      </div>
     </section>
 
     <!-- Skills Section -->
-    <section>
-      <h2>SKILLS</h2>
-      <dl>
-        <dt>グラフィックソフト</dt>
-        <dd>Photoshop, Illustrator</dd>
-        <dt>Web制作</dt>
-        <dd>HTML, CSS, JavaScript</dd>
-      </dl>
+    <section class="content-section">
+      <h2 class="content-section__title">SKILLS</h2>
+      <div class="content-section__inner">
+        <dl>
+          <dt>グラフィックソフト</dt>
+          <dd>
+            <ul class="content-section__skills-list">
+              <li>Photoshop<br>
+                画像編集、バナー・LP制作、デザインカンプからのコーディング</li>
+              <li>Illustrator<br>
+                アイコン作成、ポスター制作</li>
+              <li>Figma<br>
+                アイコン制作、バナー制作、デザインカンプからのコーディング</li>
+            </ul>
+          </dd>
+          <dt>言語・フレームワーク</dt>
+          <dd>
+            <ul class="content-section__skills-list">
+              <li>HTML / CSS / SCSS<br>
+                新規サイト制作、既存サイトの改修</li>
+              <li>JavaScript / jQuery<br>
+                動的UIパーツ実装、インタラクションアニメーションの構築</li>
+              <li>Vue.js / TypeScript<br>
+                デザインに基づいたUIコンポーネントの作成、新規画面のUI実装および既存機能の改修</li>
+            </ul>
+          </dd>
+        </dl>
+      </div>
     </section>
 
     <!--Experience Section -->
-    <section>
-      <h2>EXPERIENCE</h2>
-      <table>
-        <tr>
-          <th>期間</th>
-          <th>所属</th>
-          <th>業務内容</th>
-        </tr>
-        <tr>
-          <td>2019年4月～2022年11月</td>
-          <td>都内IT企業</td>
-          <td>放送関連システムの導入・運用保守業務</td>
-        </tr>
-        <tr>
-          <td>2022年12月～現在</td>
-          <td>Web制作会社</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>2022年12月～2025年3月</td>
-          <td>└大手鉄道会社Webサイト運用チーム</td>
-          <td>・ポータルサイトの運用業務<br/>
+    <section class="content-section">
+      <h2 class="content-section__title">EXPERIENCE</h2>
+      <div class="content-section__inner">
+        <table class="content-section__experience-table">
+          <colgroup>
+            <col style="width: 20%;">
+            <col style="width: 40%;">
+            <col>
+          </colgroup>
+          <tr>
+            <th>期間</th>
+            <th>所属</th>
+            <th>業務内容</th>
+          </tr>
+          <tr>
+            <td>2019年4月<br>～2022年11月</td>
+            <td>都内IT企業</td>
+            <td>放送関連システムの導入・運用保守業務</td>
+          </tr>
+          <tr>
+            <td>2022年12月<br>～現在</td>
+            <td>Web制作会社</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="content-section__experience-table__indent-cell">2022年12月<br>～2025年3月</td>
+            <td>└大手鉄道会社Webサイト運用チーム</td>
+            <td>・ポータルサイトの運用業務<br/>
               ・メールマガジンの作成<br/>
-              ・新規LP作成
-          </td>
-        </tr>
-        <tr>
-          <td>2025年4月～現在</td>
-          <td>└大手カード会社アプリ運用チーム</td>
-          <td>・アプリの運用業務（開発～テスト、リリース対応）<br/>
-              ・新規機能のLP作成
-          </td>
-        </tr>
-      </table>
+              ・LP作成</td>
+          </tr>
+          <tr>
+            <td class="content-section__experience-table__indent-cell">2025年4月<br>～現在</td>
+            <td>└大手カード会社アプリ運用チーム</td>
+            <td>・アプリの運用業務（開発～テスト、リリース対応）<br/>
+              ・LP作成</td>
+          </tr>
+        </table>
+      </div>
     </section>
   </main>
 
   <!-- Footer -->
   <footer class="site-footer">
-    <div class="container footer-container">
-      <div class="social-links">
-        <a href="https://github.com/MIKISugiyama" class="social-link" aria-label="GitHub" id="social-github">GitHub</a>
-        <a href="mailto:[howdy8355@gmail.com]" class="social-link" aria-label="E-mail" id="social-email">E-mail</a>
-      </div>
+    <div class="site-footer__inner">
+      <a href="https://github.com/MIKISugiyama" class="site-footer__social-link" aria-label="GitHub" id="social-github" target="_blank">
+        <svg width="16" height="16" aria-hidden="true"><use href="#icon-github"></use></svg>
+        GitHub
+      </a>
+      <button class="site-footer__social-link" aria-label="E-mail" id="social-email">
+        <svg width="16" height="16" aria-hidden="true"><use href="#icon-email"></use></svg>
+        <span id="email-text">howdy8355[at]gmail.com</span>
+        <svg width="12" height="12" aria-hidden="true"><use href="#icon-copy"></use></svg>
+      </button>
     </div>
   </footer>
 
