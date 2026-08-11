@@ -105,53 +105,42 @@ button {
 }
 
 #main-content{
-  background: radial-gradient(
-      800px circle at 90% 80%, 
-      rgba(46, 210, 169, 0.3), 
-      rgba(157, 255, 248, 0.1) 40%
-  );
+  overflow: hidden;
 }
-
 
 .hero-section {
   position: relative;
-  padding: space(32) space(6);
+  padding: space(28) space(6) space(18);
 
   @media screen and (min-width: $bp-md) {
     padding: space(32) 0;
   }
 
-  &::before,
-  &::after {
+  &::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     filter: blur(120px);
     pointer-events: none;
-    transition: opacity 0.5s ease;
+    z-index: -1;
+    background: radial-gradient(
+        800px circle at 50% 50%, 
+        rgba(46, 210, 169, 0.6), 
+        rgba(157, 255, 248, 0.3)
+    );
+    animation: heroGlow 8s ease infinite;
   }
 
-  /* レイヤー1: 中央用グラデーション */
-  &::before {
-    background: radial-gradient(
-        800px circle at var(--glow1-x, 50%) var(--glow1-y, 50%), 
-        rgba(46, 210, 169, 0.5), 
-        rgba(157, 255, 248, 0.1) 40%
-    );
-    opacity: var(--glow1-opacity, 1);
-  }
-
-  /* レイヤー2: マウス追従用グラデーション */
-  &::after {
-    background: radial-gradient(
-        800px circle at var(--glow2-x, 50%) var(--glow2-y, 50%), 
-        rgba(46, 210, 169, 0.5), 
-        rgba(157, 255, 248, 0.1) 40%
-    );
-    opacity: var(--glow2-opacity, 0);
+  @keyframes heroGlow {
+    100%, 0% {
+      top: 20%;
+      left: -20%;
+    }
+    50% {
+      top: -20%;
+      left: 20%;
+    }
   }
 
   &__content{
@@ -193,6 +182,8 @@ button {
 
   &__title {
     font-size: var(--fontsize-2xl);
+    text-decoration: underline 2px var(--color-main);
+    text-underline-offset: 12px;
   }
 
   &__inner{
@@ -369,4 +360,24 @@ button {
       opacity: .7;
     }
   }
+}
+
+.slide-left {
+  opacity: 0;
+  transform: translateX(40px);
+}
+.slide-left.show {
+  opacity: 1;
+  transform: translateX(0);
+  transition: .8s;
+}
+
+.slide-right {
+  opacity: 0;
+  transform: translateX(-40px);
+}
+.slide-right.show {
+  opacity: 1;
+  transform: translateX(0);
+  transition: .8s;
 }
