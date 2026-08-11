@@ -22,6 +22,8 @@ $bp-md: 768px;
 
   // fontsize
   --fontsize-base: 16px;
+  --fontsize-base-sp: 14px;
+  --fontsize-xsm: calc(var(--fontsize-base) - 4px);
   --fontsize-sm: calc(var(--fontsize-base) - 2px);
   --fontsize-md: calc(var(--fontsize-base) + 2px);
   --fontsize-lg: calc(var(--fontsize-base) + 6px);
@@ -29,6 +31,7 @@ $bp-md: 768px;
   --fontsize-2xl: calc(var(--fontsize-base) + 20px);
   --fontsize-3xl: calc(var(--fontsize-base) + 32px);
   --fontsize-hero: calc(var(--fontsize-base) + 38px);
+  --fontsize-hero-sp: calc(var(--fontsize-base) + 26px);
 
   // Transitions
   --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -52,7 +55,11 @@ $bp-md: 768px;
 
 html {
   scroll-behavior: smooth;
-  font-size: var(--fontsize-base);
+  font-size: var(--fontsize-base-sp);
+  
+  @media screen and (min-width: $bp-md) {
+    font-size: var(--fontsize-base);
+  }
 }
 
 body {
@@ -108,7 +115,11 @@ button {
 
 .hero-section {
   position: relative;
-  padding: space(32) 0;
+  padding: space(32) space(6);
+
+  @media screen and (min-width: $bp-md) {
+    padding: space(32) 0;
+  }
 
   &::before,
   &::after {
@@ -150,13 +161,22 @@ button {
   }
 
   &__title{
-    font-size: var(--fontsize-hero);
+    font-size: var(--fontsize-hero-sp);
+    
+    @media screen and (min-width: $bp-md) {
+      font-size: var(--fontsize-hero);
+    }
   }
 
   &__subtitle{
     margin-top: space(4);
-    font-size: var(--fontsize-lg);
+    font-size: var(--fontsize-md);
+
+    @media screen and (min-width: $bp-md) {
+      font-size: var(--fontsize-lg);
+    }
   }
+
   &__description{
     margin-top: space(8);
   }
@@ -235,47 +255,77 @@ button {
     }
 
     &__inner{
-     display: flex; 
-     align-items: center;
-     margin-top: space(8);
+      margin-top: space(8);
+
+      @media screen and (min-width: $bp-md) {
+        max-width: none;
+        display: flex; 
+        align-items: center;
+      }
     }
 
     &__image{
+      width: 100%;
+      max-width: 416px;
+      margin-inline: auto;
+      display: flex;
+      justify-content: center;
+      gap: space(6);
+
       @media screen and (min-width: $bp-md) {
-        display: flex;
         width: 50%;
+        margin-inline: 0;
         justify-content: space-between;
+        gap: 0;
       }
 
       &--pc{
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        width: 65%;
+        height: fit-content;
+
         @media screen and (min-width: $bp-md) {
           width: 70%;
-          height: fit-content;
         }
       }
 
       &--sp{
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        width: 20%;
+        height: fit-content;
+
         @media screen and (min-width: $bp-md) {
           width: 25%;
-          height: fit-content;
         }
       }
     }
 
     dl {
-      width: 50%;
-      margin-left: space(12);
+      margin-top: space(4);
+
+      @media screen and (min-width: $bp-md) {
+        width: 50%;
+        margin: 0 0 0 space(12);
+      }
     }
   }
   
   &__experience-table{
     border-collapse: collapse;
+    font-size: var(--fontsize-xsm);
+
+    @media screen and (min-width: $bp-md) {
+      font-size: var(--fontsize-base);
+    }
 
     th, td{
-      padding: space(3);
+      padding: space(2);
       border-bottom: 1px solid var(--color-main-light);
+      
+      @media screen and (min-width: $bp-md) {
+        padding: space(3);
+      }
+
     }
     th {
       &:not(:first-child){
@@ -292,8 +342,13 @@ button {
 }
 
 .site-footer{
-  margin: space(36) auto 0;
+  margin: space(30) auto 0;
   background-color: var(--color-main-light);
+  box-shadow: 0 -3px 4px rgba(0, 0, 0, 0.03);
+
+  @media screen and (min-width: $bp-md) {
+    margin-top: space(36);
+  }
 
   &__inner{
     padding: space(6) 0;
