@@ -20,6 +20,19 @@
 </head>
 <body>
 
+  <!-- SVG Sprite Definitions -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="icon-github" viewBox="0 0 16 16">
+      <path d="M6.766 11.328c-2.063-.25-3.516-1.734-3.516-3.656 0-.781.281-1.625.75-2.188-.203-.515-.172-1.609.063-2.062.625-.078 1.468.25 1.968.703.594-.187 1.219-.281 1.985-.281.765 0 1.39.094 1.953.265.484-.437 1.344-.765 1.969-.687.218.422.25 1.515.046 2.047.5.593.766 1.39.766 2.203 0 1.922-1.453 3.375-3.547 3.64.531.344.89 1.094.89 1.954v1.625c0 .468.391.734.86.547C13.781 14.359 16 11.53 16 8.03 16 3.61 12.406 0 7.984 0 3.563 0 0 3.61 0 8.031a7.88 7.88 0 0 0 5.172 7.422c.422.156.828-.125.828-.547v-1.25c-.219.094-.5.156-.75.156-1.031 0-1.64-.562-2.078-1.609-.172-.422-.36-.672-.719-.719-.187-.015-.25-.093-.25-.187 0-.188.313-.328.625-.328.453 0 .844.281 1.25.86.313.452.64.655 1.031.655s.641-.14 1-.5c.266-.265.47-.5.657-.656"/>
+    </symbol>
+    <symbol id="icon-email" viewBox="0 0 24 24">
+      <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4.75l-8 5.25L4 8.75V6.25l8 5.25 8-5.25v2.5z"/>
+    </symbol>
+    <symbol id="icon-copy" viewBox="0 0 16 16">
+      <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+    </symbol>
+  </svg>
+
   <main id="main-content">
     <!-- Hero Section -->
     <section class="hero-section" id="hero">
@@ -154,11 +167,16 @@
 
   <!-- Footer -->
   <footer class="site-footer">
-    <div class="container footer-container">
-      <div class="social-links">
-        <a href="https://github.com/MIKISugiyama" class="social-link" aria-label="GitHub" id="social-github">GitHub</a>
-        <a href="mailto:[howdy8355@gmail.com]" class="social-link" aria-label="E-mail" id="social-email">E-mail</a>
-      </div>
+    <div class="site-footer__inner">
+      <a href="https://github.com/MIKISugiyama" class="site-footer__social-link" aria-label="GitHub" id="social-github" target="_blank">
+        <svg width="16" height="16" aria-hidden="true"><use href="#icon-github"></use></svg>
+        GitHub
+      </a>
+      <button class="site-footer__social-link" aria-label="E-mail" id="social-email">
+        <svg width="16" height="16" aria-hidden="true"><use href="#icon-email"></use></svg>
+        <span id="email-text">howdy8355[at]gmail.com</span>
+        <svg width="12" height="12" aria-hidden="true"><use href="#icon-copy"></use></svg>
+      </button>
     </div>
   </footer>
 

@@ -17,11 +17,11 @@ $bp-md: 768px;
   --color-link: #4189d5;
 
   // Layout & Spacing
-  --content-max-width: 720px;
+  --content-max-width: 1000px;
   --service-unit: 4px;
 
   // fontsize
-  --fontsize-base: 14px;
+  --fontsize-base: 16px;
   --fontsize-sm: calc(var(--fontsize-base) - 2px);
   --fontsize-md: calc(var(--fontsize-base) + 2px);
   --fontsize-lg: calc(var(--fontsize-base) + 6px);
@@ -86,6 +86,15 @@ a, a:visited {
 
 ul {
   list-style: none;
+}
+
+button {
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  color: inherit;
+  font-size: inherit;
 }
 
 #main-content{
@@ -159,7 +168,7 @@ ul {
 
   @media screen and (min-width: $bp-md) {
     max-width: var(--content-max-width);
-    padding-inline: 0;
+    padding-inline: space(15);
   }
 
   &__title {
@@ -257,7 +266,7 @@ ul {
 
     dl {
       width: 50%;
-      margin-left: space(8);
+      margin-left: space(12);
     }
   }
   
@@ -278,6 +287,31 @@ ul {
     
     & &__indent-cell{
       padding-left: space(5);
+    }
+  }
+}
+
+.site-footer{
+  margin: space(36) auto 0;
+  background-color: var(--color-main-light);
+
+  &__inner{
+    padding: space(6) 0;
+    display: flex;
+    justify-content: center;
+    gap: space(6);
+  }
+
+  &__social-link{
+    display: inline-flex; 
+    align-items: center;
+    gap: space(2);
+    line-height: 1;
+    color: var(--color-link);
+    transition: opacity var(--transition-fast);
+
+    &:hover{
+      opacity: .7;
     }
   }
 }
