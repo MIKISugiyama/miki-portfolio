@@ -12,6 +12,7 @@ $bp-md: 768px;
   // color
   --color-main: #82e6c3;
   --color-main-light: #d9fdf1;
+  --color-main-dark: #0aab7a;
   --color-bg: #fff;
   --color-text-main: #3a3a3a;
   --color-link: #4189d5;
@@ -243,6 +244,21 @@ button {
     &__title{
       padding-left: space(2);
       border-left: 4px solid var(--color-main);
+      display: flex;
+      align-items: center;
+      gap: space(2);
+      flex-wrap: wrap;
+    }
+
+    &__badge {
+      display: inline-block;
+      font-size: var(--fontsize-xsm);
+      color: var(--color-main-light);
+      background-color: var(--color-main-dark);
+      border-radius: 10vh;
+      padding: space(1) space(2);
+      line-height: 1;
+      font-weight: bold;
     }
 
     &__inner{
